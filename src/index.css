@@ -1,13 +1,114 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+  margin:0;
+  padding:0;
+  background:#f2f4f5;
+  color:#1e1e1f;
+  font-family:montserrat,Arial,Helvetica,sans-serif
+
+}
+#root{
+  margin:0 24px;
+  position:relative;
+  min-height:100vh
+}
+/* from here to the bottom is bout the modal so check it later */
+/* .congratulation-modal{
+  position: absolute;
+  top: 40px;
+  left:calc(50% - 145px);
+  padding: 50px 20px 0;
+  width: 350px;
+  height: 105px;
+  background-color: rgb(175, 192, 26);
+  overflow: visible;
+  border-radius: 25px;
+  border: 1px solid gray;
+  
+    position: relative;
+    font-family: sans-serif;
+  
+  
+  .container::before, .container::after {
+    content: "";
+    background-color: #fab5704c;
+    position: absolute;
+  }
+  
+  .container::before {
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    top: 30%;
+    right: 7%;
+  }
+  
+  .container::after {
+    content: "";
+    position: absolute;
+    height: 3rem;
+    top: 8%;
+    right: 5%;
+    border: 1px solid;
+  }
+  
+  .congratulation-modal .box {
+    width: 31.875em;
+    height: 15.875em;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.074);
+    border: 1px solid rgba(255, 255, 255, 0.222);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: .7rem;
+    transition: all ease .3s;
+  }
+  
+  .congratulation-modal .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  
+  }
+  
+  .congratulation-modal .box .title {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: .1em
+    
+  }
+  
+  .congratulation-modal .box div strong {
+    display: block;
+    margin-bottom: .5rem;
+  }
+  
+  .congratulation-modal .box div p {
+    margin: 0;
+    font-size: .9em;
+    font-weight: 300;
+    letter-spacing: .1em;
+  }
+  
+  .congratulation-modal .box div span {
+    font-size: .7rem;
+    font-weight: 300;
+  }
+  
+  .congratulation-modal .box div span:nth-child(3) {
+    font-weight: 500;
+    margin-right: .2rem;
+  }
+  
+  .congratulation-modal .box:hover {
+    box-shadow: 0px 0px 20px 1px #ffbb763f;
+    border: 1px solid rgba(255, 255, 255, 0.454);
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+.congratulation-modal-background{
+  width: 450px;
+  height: 205px;
+  --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
+
+} */
