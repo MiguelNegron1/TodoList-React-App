@@ -31,9 +31,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "https://github.com/MiguelNegron1/TodoList-React-App",
-  "devDependencies": {
-    "gh-pages": "^6.0.0"
-  }
+  }  
 }
