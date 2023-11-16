@@ -6,6 +6,7 @@
     "react-dom": "^18",
     "react-icons": "^4.11.0",
     "react-scripts": "5.0.1",
+    "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,6 +35,6 @@
   },
   "devDependencies": {
     "gh-pages": "^6.0.0"
-  }, 
+  },
   "homepage": "https://miguelnegron1.github.io/TodoList-React-App/"
 }

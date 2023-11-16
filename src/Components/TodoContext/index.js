@@ -1,4 +1,5 @@
 import  React, { useState }  from "react";
+import { v4 as uuidv4 } from "uuid";
 import  {useLocalStorage}  from "./useLocalStorage";
 
 const TodoContext = React.createContext();
@@ -22,31 +23,36 @@ function TodoProvider({children}) {
       const textSearched = searchValue.toLowerCase()
         return todoText.includes(textSearched)
     })
-  
     const addTodo = (text) => {
       const newTodos = [...todos];
+
       if (!text) return;
+
       newTodos.push({
+        id: uuidv4(),
         text,
         completed: false,
       });
       saveTodos(newTodos)
     }
 
-    const completeTodo = (text) => {
+    const completeTodo = (id) => {
       const newTodos = [...todos];
-      const todoIndex = newTodos.findIndex((todo)=> todo.text === text
-      );
-      newTodos[todoIndex].completed = true;
-      saveTodos(newTodos);
+      const todoIndex = newTodos.findIndex((todo)=> todo.id === id);
+        if(todoIndex !== -1){
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+        saveTodos(newTodos);
+      }
     }
   
-    const deleteTodo = (text) => {
+    const deleteTodo = (id) => {
       const newTodos = [...todos];
-      const todoIndex = newTodos.findIndex((todo)=>todo.text === text);
+      const todoIndex = newTodos.findIndex((todo)=>todo.id === id);
   
-      newTodos.splice(todoIndex,1)
-      saveTodos(newTodos)
+      if (todoIndex !== -1) {
+        newTodos.splice(todoIndex,1)
+        saveTodos(newTodos)
+      }
     }
   
     return(
