@@ -25,6 +25,7 @@ function TodoProvider({children}) {
   
     const addTodo = (text) => {
       const newTodos = [...todos];
+      if (!text) return;
       newTodos.push({
         text,
         completed: false,
