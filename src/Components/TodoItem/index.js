@@ -11,7 +11,7 @@ function TodoItem(props) {
             onClick={props.onComplete}>v 
             </span> */}
             <CompleteIcon 
-            onComplete={props.onComplete}
+            onComplete={() => props.onComplete(props.id)}
             completed={props.completed}/>
 
             <p className={`TodoItem-p 
@@ -19,7 +19,7 @@ function TodoItem(props) {
             {props.text}</p>
 
             <DeleteIcon 
-            onDelete={props.onDelete}/>
+            onDelete={() => props.onDelete(props.id)}/>
             {/* <span 
             className='Icon Icon-delete' 
             onClick={props.onDelete}>x
