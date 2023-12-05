@@ -1,6 +1,6 @@
 function TodosError() {
     return(
-        <p>Hubo un error</p>
+        <p>There was a mistake</p>
     )
 
 }

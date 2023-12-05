@@ -1,7 +1,7 @@
 import './EmptyTodos.css'
 function EmptyTodos() {
     return(
-        <p id="emptyText">Crea tu primer Todos</p>
+        <p id="emptyText">Create your first to-do</p>
     )
 
 }
