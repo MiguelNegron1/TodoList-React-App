@@ -284,5 +284,5 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-# Imgs
-assets/Escultura*
+# code that might be use in a future
+src/App/futureModal

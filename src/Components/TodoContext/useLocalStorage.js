@@ -46,13 +46,3 @@ function useLocalStorage(itemName, initialValue) {
   }
   export {useLocalStorage};
 
-  // localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos))
-
-// const defaultTodos = [
-//   {text: 'Go to the gym', completed: true},
-//   {text: 'Do Leetcode 75 interview challenges', completed: false},
-//   {text: 'Take classes of React Fundaments', completed: false},
-//   {text: 'Do Leetcode JS challenges', completed: false},
-//   {text: 'Do Leetcode 150 interview challenges', completed: false},
-//   {text: 'work with derivedes states', completed: true},
-// ];

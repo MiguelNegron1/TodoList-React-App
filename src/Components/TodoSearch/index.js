@@ -11,7 +11,7 @@ function TodoSearch() {
   
   return (
     <input 
-      placeholder="Alcanzar el exito" 
+      placeholder="Type here to search to-dos..." 
       className="TodoSearch"
       value={searchValue}
       onChange={(event) => {
