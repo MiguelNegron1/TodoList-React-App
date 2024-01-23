@@ -14,7 +14,8 @@
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": [
@@ -34,7 +35,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.0.0"
+    "gh-pages": "^6.0.0",
+    "jest": "^27.5.1"
   },
   "homepage": "https://miguelnegron1.github.io/TodoList-React-App/"
 }
