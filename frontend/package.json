@@ -37,9 +37,10 @@
   "devDependencies": {
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
+    "@types/uuid": "^9.0.8",
     "gh-pages": "^6.1.1",
-    "typescript": "^4.9.5",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "typescript": "^4.9.5"
   },
   "homepage": "https://miguelnegron1.github.io/TodoList-React-App/"
 }

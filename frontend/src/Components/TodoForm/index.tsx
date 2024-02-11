@@ -3,14 +3,20 @@ import './TodoForm.css'
 import { TodoContext } from '../TodoContext'
 
 function TodoForm() {
+    const context = React.useContext(TodoContext);
+    if (!context) {
+        // handle the case where the context is null
+        throw new Error('TodoForm must be used within a TodoProvider');
+    }
+    
     const {
         addTodo,
         setOpenModal,
-    } = React.useContext(TodoContext)
+    } = context
     const [newTodoValue, setnewTodoValue] = useState('')
 
 
-    const onSubmit = (e) => {
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         addTodo(newTodoValue)
         setOpenModal(false)
@@ -19,7 +25,7 @@ function TodoForm() {
     const onCancel = () => {
         setOpenModal(false)
     }
-    const onChange = (e) => {
+    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setnewTodoValue(e.target.value)
     }
 

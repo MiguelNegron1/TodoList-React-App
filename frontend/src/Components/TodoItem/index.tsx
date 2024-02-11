@@ -2,7 +2,14 @@ import './TodoItem.css';
 import {CompleteIcon} from '../TodoIcon/CompleteIcon'
 import {DeleteIcon} from '../TodoIcon/DeleteIcon'
 
-function TodoItem(props) {
+interface TodoItemProps {
+    text: string;
+    completed: boolean;
+    onComplete: (id: number) => void;
+    onDelete: (id: number) => void;
+    id: number;
+}
+function TodoItem(props: TodoItemProps) {
     return (
         <li className='TodoItem'>
             <CompleteIcon 
