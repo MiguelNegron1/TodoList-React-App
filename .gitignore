@@ -285,6 +285,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 # code that might be use in a future
-src/App/futureModal
+.frontend/src/App/futureModal.tsx
 #env
 .env
