@@ -4,11 +4,10 @@ import  {useLocalStorage}  from "./useLocalStorage";
 
 
 interface Todo {
+  id: string;
   text: string;
   completed: boolean;
-  id: string;
 }
-
 export interface TodoContextType {
   todos?: Todo[];
   saveTodos?: (todos: Todo[]) => void;
@@ -28,7 +27,6 @@ export interface TodoContextType {
 
 const TodoContext = React.createContext<TodoContextType | null>(null);
 function TodoProvider({children} : {children: React.ReactNode}) {
-
     const {
         item : todos, 
         saveItem : saveTodos,
@@ -46,11 +44,11 @@ function TodoProvider({children} : {children: React.ReactNode}) {
         return todoText.includes(textSearched)
     })
     // There is ts problem here which solution I dont find, so I will ignore it for now
-    // @ts-ignore
     const addTodo = (text: string): void => {
-      // if (!todos) return;
-      // const newTodos = [...todos];
-
+      if (!saveTodos) {
+        throw new Error('saveTodos is not defined');
+      }
+      
       const newTodos = [...(todos || [])];
       
       if (!text) return;
@@ -87,7 +85,7 @@ function TodoProvider({children} : {children: React.ReactNode}) {
     return(
         <TodoContext.Provider value={{
             loading,
-            error = new Error('Error'),
+            error: new Error('Error'),
             completedTodos,
             totalTodos,
             searchValue,

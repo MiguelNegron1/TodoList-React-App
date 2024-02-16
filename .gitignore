@@ -288,3 +288,5 @@ dist
 .frontend/src/App/futureModal.tsx
 #env
 .env
+#compile version of the ts files
+dist/
