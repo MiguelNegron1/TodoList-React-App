@@ -290,3 +290,7 @@ dist
 .env
 #compile version of the ts files
 dist/
+seeders/
+services/
+utils/
+middlewares/
