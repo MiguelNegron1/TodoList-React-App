@@ -1,26 +1,17 @@
 {
   "name": "platzi-intro-react-base",
   "version": "0.1.0",
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^5.0.1",
-    "react-scripts": "^5.0.1",
-    "uuid": "^9.0.1",
-    "web-vitals": "^3.5.1"
-  },
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject",
     "test": "jest"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
+    "extends": []
   },
   "browserslist": {
     "production": [
@@ -37,9 +28,18 @@
   "devDependencies": {
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
+    "@types/uuid": "^9.0.8",
     "gh-pages": "^6.1.1",
+    "jest": "^27.5.1",
     "typescript": "^4.9.5",
-    "jest": "^27.5.1"
+    "vite": "^5.1.1"
   },
-  "homepage": "https://miguelnegron1.github.io/TodoList-React-App/"
+  "homepage": "https://miguelnegron1.github.io/TodoList-React-App/",
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "vite-tsconfig-paths": "^4.3.1"
+  }
 }

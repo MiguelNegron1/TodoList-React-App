@@ -1,10 +1,17 @@
 import React from 'react'
 
-function useLocalStorage(itemName, initialValue) {
 
-  const [item, setItem] = React.useState(initialValue)
+type UseLocalStorageReturn<T> = {
+  item: T | null;
+  saveItem: (newItem: T) => void;
+  loading: boolean;
+  error: string | null;
+};
+
+function useLocalStorage<T>(itemName: string, initialValue: T): UseLocalStorageReturn<T> {
+  const [item, setItem] = React.useState<T | null>(null)
   const [loading,setLoading] = React.useState(true)
-  const [error,setError] = React.useState(false)
+  const [error,setError] = React.useState<string | null>(null)
 
 
     React.useEffect(() => {
@@ -25,15 +32,19 @@ function useLocalStorage(itemName, initialValue) {
           }
         }catch (error) {
           setLoading(false)
-          setError(true)
+          if (error instanceof Error) {
+            setError(error.message);
+          }else{
+            setError('An unknown error occurred')
+          }
         }
       }, 2000);
     },[])
   
   
-    const saveItem = (newItem) => {
+    const saveItem = (newItem: T) => {
       localStorage.setItem(itemName, JSON.stringify(newItem));
-      setItem(newItem)
+      setItem(newItem);
     }
 
     console.log(item);
@@ -41,7 +52,7 @@ function useLocalStorage(itemName, initialValue) {
       item, 
       saveItem,
       loading,
-      error
+      error,
     };
   }
   export {useLocalStorage};

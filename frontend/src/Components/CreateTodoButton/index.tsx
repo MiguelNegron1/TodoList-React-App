@@ -1,9 +1,9 @@
 import './CreateTodoButton.css'
 
-function CreateTodoButton({setOpenModal}) {
+function CreateTodoButton({setOpenModal}: {setOpenModal: (updater: (state: boolean) => boolean) => void}) {
   return (
     <button className='CreateTodoButton'onClick={() => {
-      setOpenModal(state => !state)}}>+</button>
+      setOpenModal((state: boolean) => !state)}}>+</button>
   )
 }
 

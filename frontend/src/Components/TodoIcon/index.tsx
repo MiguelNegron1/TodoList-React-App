@@ -8,15 +8,15 @@ import "./TodoIcons.css";
 
 
 const IconTypes = {
-    'check': (color) => <BsCheck className="Icon-svg" fill={color}/>,
-    'delete': (color) => <TiDelete className="Icon-svg" fill={color}/>
+    'check': (color: string) => <BsCheck className="Icon-svg" fill={color}/>,
+    'delete': (color: string) => <TiDelete className="Icon-svg" fill={color}/>
 }
 
-function TodoIcon({type, color, onClick}) {
+function TodoIcon({type, color, onClick}: {type: string, color: string, onClick: () => void}) {
     return (
         <span className={`Icon-container  Icon-container-${type}`}
         onClick={onClick}>
-            {IconTypes[type](color)}
+            {IconTypes[type as keyof typeof IconTypes](color)}
         </span>
     )
 };

@@ -2,30 +2,55 @@ import  React, { useState }  from "react";
 import { v4 as uuidv4 } from "uuid";
 import  {useLocalStorage}  from "./useLocalStorage";
 
-const TodoContext = React.createContext();
 
+interface Todo {
+  id: string;
+  text: string;
+  completed: boolean;
+}
+export interface TodoContextType {
+  todos?: Todo[];
+  saveTodos?: (todos: Todo[]) => void;
+  loading: boolean;
+  error: Error | null;
+  searchValue: string;
+  setSearchValue: (value: string) => void;
+  openModal: boolean;
+  setOpenModal: (open: boolean) => void;
+  completedTodos: number;
+  totalTodos: number;
+  searchedTodos: Todo[];
+  addTodo: (text: string) => void;
+  completeTodo: (id: string) => void;
+  deleteTodo: (id: string) => void;
+}
 
-function TodoProvider({children}) {
-
+const TodoContext = React.createContext<TodoContextType | null>(null);
+function TodoProvider({children} : {children: React.ReactNode}) {
     const {
         item : todos, 
         saveItem : saveTodos,
         loading,
         error,
-      } = useLocalStorage('TODOS_V1', []);
+      } = useLocalStorage<Todo[]>('TODOS_V1', []);
       const [searchValue, setSearchValue] = React.useState('')
       const [openModal, setOpenModal] = React.useState(false)
     
-      const completedTodos = todos.filter(todo => !!todo.completed).length
-      const totalTodos = todos.length;
-    const searchedTodos = todos.filter((todo) => {
+      const completedTodos = todos ? todos.filter(todo => !!todo.completed).length : 0
+      const totalTodos = todos ?  todos.length : 0;
+    const searchedTodos = todos ? todos.filter((todo) => {
       const todoText = todo.text.toLowerCase()
       const textSearched = searchValue.toLowerCase()
         return todoText.includes(textSearched)
     })
-    const addTodo = (text) => {
-      const newTodos = [...todos];
-
+    // There is ts problem here which solution I dont find, so I will ignore it for now
+    const addTodo = (text: string): void => {
+      if (!saveTodos) {
+        throw new Error('saveTodos is not defined');
+      }
+      
+      const newTodos = [...(todos || [])];
+      
       if (!text) return;
 
       newTodos.push({
@@ -36,7 +61,8 @@ function TodoProvider({children}) {
       saveTodos(newTodos)
     }
 
-    const completeTodo = (id) => {
+    const completeTodo = (id: string) => {
+      if (!todos) return;
       const newTodos = [...todos];
       const todoIndex = newTodos.findIndex((todo)=> todo.id === id);
         if(todoIndex !== -1){
@@ -45,7 +71,8 @@ function TodoProvider({children}) {
       }
     }
   
-    const deleteTodo = (id) => {
+    const deleteTodo = (id: string) => {
+      if (!todos) return;
       const newTodos = [...todos];
       const todoIndex = newTodos.findIndex((todo)=>todo.id === id);
   
@@ -58,7 +85,7 @@ function TodoProvider({children}) {
     return(
         <TodoContext.Provider value={{
             loading,
-            error,
+            error: new Error('Error'),
             completedTodos,
             totalTodos,
             searchValue,
