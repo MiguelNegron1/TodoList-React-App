@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './TodoForm.css'
 import { TodoContext } from '../TodoContext'
+import { useContext } from 'react';
 
 function TodoForm() {
-    const context = React.useContext(TodoContext);
+    const context = useContext(TodoContext);
     if (!context) {
         // handle the case where the context is null
         throw new Error('TodoForm must be used within a TodoProvider');
