@@ -1,4 +1,3 @@
-import React from 'react'
 import {TodoList} from '../Components/TodoList'
 import {TodoItem} from '../Components/TodoItem'
 import {TodoSearch} from '../Components/TodoSearch'
@@ -11,6 +10,7 @@ import { TodoContext } from '../Components/TodoContext'
 import {Modal} from '../modal/index'
 import {TodoForm}  from '../Components/TodoForm'
 import { TodoContextType } from "../Components/TodoContext/index";
+import { useContext } from 'react';
 function AppUI() {
     const {
         loading,
@@ -20,7 +20,7 @@ function AppUI() {
         deleteTodo,
         openModal,
         setOpenModal
-    } = React.useContext<TodoContextType>(TodoContext as React.Context<TodoContextType>);
+    } = useContext<TodoContextType>(TodoContext as React.Context<TodoContextType>);
     return (
         <>
                             <TodoList>

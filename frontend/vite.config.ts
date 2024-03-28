@@ -6,11 +6,15 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
     root: './public',
     build:{ 
-        outDir: '../frontend/dist',
-        rollupOptions: {
-            input: './src/index.tsx',
-        },
-        },
+        outDir: './build',
+        // rollupOptions: {
+        //     input: './src/index.tsx',
+        // },
+    },
+    publicDir: './public',
+    server:{
+        port: 3001,
+    },
     plugins: [react(), tsconfigPaths()],
     esbuild: {
     jsxInject: `import React from 'react'`,
